@@ -1,6 +1,6 @@
 <h1>Contact</h1>
-{{#if responseMessage}}
-<div class="alert alert-success">{{responseMessage}}</div>
+{{#if successMessage}}
+<div class="alert alert-success">{{successMessage}}</div>
 {{else}}
 <div class="formgroup formgroup-lg form-horizontal">
     <div class="row">
@@ -12,7 +12,7 @@
             {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address."}}
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveMessage'}}>Request invitation</button>
+            <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'saveMessage' model}}>Request invitation</button>
         </div>
     </div>
 </div>
