@@ -17,12 +17,13 @@ module.exports = function(environment) {
       }
     },
       firebase: {
-          apiKey: "",
+// https://stackoverflow.com/questions/26403334/how-to-pass-api-keys-in-environment-variables-to-ember-cli-using-process-env
+          messagingSenderId: null,
+          apiKey: null,
           authDomain: "zoltantutorialember.firebaseapp.com",
           databaseURL: "https://zoltantutorialember.firebaseio.com",
           projectId: "zoltantutorialember",
-          storageBucket: "zoltantutorialember.appspot.com",
-          messagingSenderId: "1095246925308"
+          storageBucket: "zoltantutorialember.appspot.com"
       },
 
       // if using ember-cli-content-security-policy
@@ -44,6 +45,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+      // other option: load from .secret folder (however I prefer this method)
+      ENV.firebase.apiKey=process.env.firebaseKey;
+      ENV.firebase.messagingSenderId=process.env.firebaseID;
   }
 
   if (environment === 'test') {
